@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>スケジュール詳細</h2>
+
+  <table>
+    <tr>
+      <th>タイトル</th>
+      <td><%= @post.title %></td>
+    </tr>
+
+    <tr>
+      <th>開始日</th>
+      <td><%= start_day_format(@post) %></td>
+    </tr>
+
+    <tr>
+      <th>終了日</th>
+      <td><%= end_day_format(@post) %></td>
+    </tr>
+
+    <tr>
+      <th>終日</th>
+      <td><%=  %></td>
+    </tr>
+
+    <tr>
+      <th>スケジュールメモ</th>
+      <td><%= @post.memo %></td>
+    </tr>
+  </table>
+
+  <div>
+    <ul>
+      <li><%= link_to "スケジュール一覧に戻る", posts_path %></li>
+      <li><%= link_to "スケジュールを編集する", edit_post_path(@post) %></li>
+      <li><%= link_to "スケジュールを削除", post_path(@post), method: :delete, data: { confirm: "本当に削除しますか？" } %></li>
+    </ul>
+  </div>
+</div>
