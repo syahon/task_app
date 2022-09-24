@@ -11,6 +11,15 @@
   </head>
 
   <body>
+    <header>
+      <h1>Ruby on Railsスケジュール管理アプリ</h1>
+    </header>
+    <% flash.each do |message_type, message| %>
+      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+    <% end %>
     <%= yield %>
+    <footer>
+      <p>現在の日時：<%= Time.zone.now.to_s(:datetime_jp) %> スケジュール合計：<%= Post.all.length %></p>
+    </footer>
   </body>
 </html>
